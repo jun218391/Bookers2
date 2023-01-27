@@ -1,11 +1,13 @@
 <h1>Books</h1>
-<% @book.each do |book| %>
+<% @books.each do |book| %>
 <div>
-  <%= image_tag book.get_image %>
-  <!--<p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>-->
+  <%= image_tag book.user.get_profile_image(100,100) %></p>
   <p><%= book.user.name %></p>
   
-  <p>Title <%= book.title %></p>
+  <p>Title</p>
+   <%= link_to book.title, books_path(@books)  %>
   <p>Opinion <%= book.body %></p>
+    <%= link_to "Edit", edit_book_path(@books)  %>
+    <%= link_to "Destroy", book_path(@books), method: :delete %>
 </div>
 <% end %>
