@@ -1,11 +1,76 @@
-<%= render 'books/list', user: @user %>
-<!--<div>-->
-<!--  <h2>User info</h2>-->
-<!--  <%= image_tag @user.get_profile_image(100,100) %>-->
-<!--  <h3>name <%= @user.name %></h3>-->
-<!--  <h3>introduction <%= @user.introduction %></h3>-->
-<!--  <% if @user == current_user %>-->
-<!--    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>-->
-<!--  <% end %>-->
-<!--</div>-->
+
+<div　class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      
+      <table>
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      
+      <% if @user == current_user %>
+        <button type="button" class="btn btn-outline-secondary">
+          <%= link_to "", edit_user_path(@user) %>
+            <i class="fa-solid fa-user-gear"></i>
+        </button>
+      <% end %>
+     
+      <h1>New book</h1>
+      <%= form_with model: @book do |f| %>
+        <h4>Title</h4>
+          <%= f.text_field :title %>
+        <h4>Opinion</h4>
+          <%= f.text_area :body %><br>
+        <div class="create_book">
+          <%= f.submit 'Create Book'  %>
+        </div>
+      <% end %>
+          
+           
+          
+    
+    </div>
+      
+    <div class="col-md-8">
+      <h1>Books</h1>
+      
+      <table>
+        <tbody>
+          
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thead>
+            
+          <tr>
+¥
+          </tr>
+        </tbody>
+      </table>
+      
+   
+      </div>
+      
+   
+    
+  </div>
+  
+</div>
+
+ 
+      
+      
 
