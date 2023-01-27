@@ -1,9 +1,11 @@
+<h1>Books</h1>
 <% @book.each do |book| %>
 <div>
   <%= image_tag book.get_image %>
+  <!--<p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>-->
   <p><%= book.user.name %></p>
   
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
+  <p>Title <%= book.title %></p>
+  <p>Opinion <%= book.body %></p>
 </div>
 <% end %>

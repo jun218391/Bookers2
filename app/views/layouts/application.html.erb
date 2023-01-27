@@ -11,29 +11,90 @@
   </head>
 
   <body>
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to '投稿フォーム', new_book_path %>
-        </li>
-        <li>
-          <%= link_to 'Home', user_path(current_user.id) %>    
-        </li>
-        <li>
-          <%= link_to "Books", '/' %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
+    
+        <header class="sticky-top">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
+        <a>
+          <%= link_to 'Bookser', root_path, data: {"turbolinks" => false} %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
+            
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to '投稿フォーム', new_book_path %>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-house-chimney"></i>
+                <%= link_to 'Home', user_path(current_user.id) %>
+              </li>
+              <li class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <%= link_to 'Users', root_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Books", books_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Home', root_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'About', about_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+            
+          
+        </div>
+      </nav>
     </header>
+    
+    
+    
+    <!--<header>-->
+    <!--  <% if user_signed_in? %>-->
+    <!--    <li>-->
+    <!--      <%= link_to '投稿フォーム', new_book_path %>-->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--      <%= link_to 'Home', user_path(current_user.id) %>    -->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--      <%= link_to "Books", books_path %>-->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>-->
+    <!--    </li>-->
+    <!--  <% else %>-->
+    <!--    <li>-->
+    <!--      <%= link_to "新規登録", new_user_registration_path %>-->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--      <%= link_to "ログイン", new_user_session_path %>-->
+    <!--    </li>-->
+    <!--  <% end %>-->
+    <!--</header>-->
+    
+    
+    
     <%= yield %>
+    
+    <footer>
+      CopyRight Infratop.inc
+    </footer>
   </body>
 </html>
