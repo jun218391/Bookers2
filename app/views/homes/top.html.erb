@@ -1,16 +1,36 @@
-<p>welcome to <i class="fas fa-book"></i>Bookers !!</p> 
-
-In <i class="fas fa-book"></i>Bookers,<br>
-
-you can share and exchange your opinions , inpressions , and emotions<br>
-
-about various books!
-
-  <ul>
-   <li class="nav-item">
-    <%= link_to "Log in", new_user_session_path %>
-   </li>
-   <li class="nav-item">
-    <%= link_to "Sign up", new_user_registration_path %>
-   </li>
-  </ul>
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class= "mx-auto" style="width: 600px";>
+         <h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1> 
+         
+         In <i class="fas fa-book"></i>Bookers,<br>
+         
+         you can share and exchange your opinions , inpressions , and emotions<br>
+         
+         about various books!
+         
+        </div>
+        
+        <div class="d-grid gap-2 col-6 mx-auto">
+         <div class="row">
+           <button class="btn btn-info btn-sm btn-block ">
+            <%= link_to "Log in", "/users/sign_in/" %>
+           </button>
+         </div>
+         <div class="row">
+           <button class="btn btn-success  btn-sm btn-block">
+            <%= link_to "/users/sign_up/" do %>Sign up<% end %>
+           </button>
+         </div>
+         
+         
+       </div>
+      </div>
+    </div>
+  </div>
+         
+         
+    
+           
+       

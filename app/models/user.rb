@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :name, length: {minimum:2, maximum:20}, uniqueness: true, presence: true
-  varidates :introduction, length: {maximum: 50}
+  validates :introduction, length: {maximum: 50}
         # authentication_keys: [:name]
   has_many :books, dependent: :destroy
   

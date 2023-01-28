@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     # @book = Book.select("title", "body", "id")
     @user = User.find(params[:id])
-    @books = Book.all
+    @books = @user.books
     @book = Book.new
     # render template: 'books/create'
   end
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @book = Book.new
+    @user = current_user
   end
   
   def edit
