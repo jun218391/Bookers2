@@ -1,7 +1,7 @@
 
 <div　class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <h2>User info</h2>
       <%= image_tag @user.get_profile_image(100,100) %>
       
@@ -35,34 +35,29 @@
           <%= f.submit 'Create Book'  %>
         </div>
       <% end %>
-          
-           
-          
-    
-    </div>
+          </div>
       
     <div class="col-md-8">
       <h1>Books</h1>
-      
       <table>
-        <tbody>
-          
-          <thead>
-            <tr>
-              <th></th>
-              <th>Title</th>
-              <th>Opinion</th>
-            </tr>
-          </thead>
-            
+        <thead>
           <tr>
-            
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
           </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= link_to book.title, books_path(@books)  %></td>
+            <td><%= book.body %></td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
-      
-   
-      </div>
+    </div>
       
    
     
