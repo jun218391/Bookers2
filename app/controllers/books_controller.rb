@@ -1,16 +1,17 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new
-  end
+  # def new
+  #   @book = Book.new
+  # end
   
   def create
+    @books =Book.all
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book)
     else
-      render :new
+      render :index
     end
   end
   
@@ -21,7 +22,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id])  #urlのidを持つbookのデータを＠bookに収納
+    @books = Book.new #新規投稿機能のため
+    @user = @book.user#bookから関連づけられたuser情報を＠userに収納
+    # @book.user = User.find(@book.user.id)
   end
   
   def edit
@@ -33,7 +37,7 @@ class BooksController < ApplicationController
     @book.update(book_params)
     if @book.update(book_params)
       flash[:notice] = "You have updated book successfully."
-      redirect_to books_path(@book.id)
+      redirect_to book_path(@book)
     else
       render :edit
     end

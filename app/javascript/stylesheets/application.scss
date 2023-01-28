@@ -2,7 +2,24 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 
-btn {
-  display: block;
+header a {
   color: white
+}
+
+.row {
+  // display: block;
+}
+
+main {
+  text_align: center;
+}
+
+
+.row {
+    flex-wrap: inherit;
+}
+
+.col {
+  flex-grow: 0;
+  margin: 0 auto;
 }

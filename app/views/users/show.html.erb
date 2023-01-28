@@ -19,15 +19,16 @@
       </table>
       
       <% if @user == current_user %>
-        <button type="button" class="btn btn-outline-secondary">
+         <button type="button" class="btn btn-outline-secondary">
           <%= link_to  edit_user_path(@user) do %>
             <i class="fas fa-user-cog"></i><% end %>
         </button>
         <% else %>
-        　  <button type="button" class="btn btn-outline-secondary">
+         <button type="button" class="btn btn-outline-secondary">
             <%= link_to user_path(current_user.id) do %><i class="fas.fa-user-cog"></i><% end %>
         　</button>
       <% end %>
+      
      <!--投稿機能-->
       <h1>New book</h1>
       <%= form_with model: @book do |f| %>
@@ -39,7 +40,7 @@
           <%= f.submit 'Create Book'  %>
         </div>
       <% end %>
-          </div>
+    </div>
     <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
       <table>
@@ -54,7 +55,7 @@
           <% @books.each do |book| %>
           <tr>
             <td><%= link_to "/users/#{book.user_id}" do %> <%= image_tag book.user.get_profile_image(100,100) %> <% end %></td>
-            <td><%= link_to book.title, book,detail  %></td>
+            <td><%= link_to book.title, book_path(book)  %></td>
             <td><%= book.body %></td>
           </tr>
           <% end %>
