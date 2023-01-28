@@ -3,7 +3,7 @@
     <div class="col mx-auto">
       <h2>User info</h2>
         <% if @user.errors.any? %>
-          <%= @user.errors.count %>件のエラーが発生しました
+          <%= @user.errors.count %>errors prohibited this obj from being saved:
           <ul>
             <% @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>

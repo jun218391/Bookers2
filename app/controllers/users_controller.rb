@@ -2,11 +2,9 @@ class UsersController < ApplicationController
   
   
   def show
-    # @book = Book.select("title", "body", "id")
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    # render template: 'books/create'
   end
   
   def create
@@ -27,9 +25,18 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    user_id = params[:id].to_i
+    unless user_id == current_user.id
+      redirect_to user_path(@user)
+    end
   end
   
   def update
+    user_id = params[:id].to_i
+     unless user_id == current_user.id
+      redirect_to user_path(@user)
+     end
+    
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.update(user_params)
