@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     root_path #サインイン後は/users/idに飛ぶ
   end
   
+  
   protected
 
   def configure_permitted_parameters
