@@ -1,7 +1,7 @@
 <!--user#show-->
 <div　class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h2>User info</h2>
       <%= image_tag @user.get_profile_image(100,100) %>
       
@@ -21,11 +21,11 @@
       <% if @user == current_user %>
         <button type="button" class="btn btn-outline-secondary">
           <%= link_to  edit_user_path(@user) do %>
-            <i class="fa-solid fa-user-gear"></i><% end %>
+            <i class="fas fa-user-cog"></i><% end %>
         </button>
         <% else %>
         　  <button type="button" class="btn btn-outline-secondary">
-            <%= link_to user_path(current_user.id) do %><i class="fa-solid fa-user-gear"></i><% end %>
+            <%= link_to user_path(current_user.id) do %><i class="fas.fa-user-cog"></i><% end %>
         　</button>
       <% end %>
      <!--投稿機能-->
@@ -40,8 +40,7 @@
         </div>
       <% end %>
           </div>
-      
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
       <table>
         <thead>
@@ -54,19 +53,15 @@
         <tbody>
           <% @books.each do |book| %>
           <tr>
-            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-            <td><%= link_to book.title, books_path(@books)  %></td>
+            <td><%= link_to "/users/#{book.user_id}" do %> <%= image_tag book.user.get_profile_image(100,100) %> <% end %></td>
+            <td><%= link_to book.title, book,detail  %></td>
             <td><%= book.body %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-      
-   
-    
   </div>
-  
 </div>
 
  

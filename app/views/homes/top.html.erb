@@ -14,14 +14,14 @@
         
         <div class="d-grid gap-2 col-6 mx-auto">
          <div class="row">
-           <button class="btn btn-info btn-sm btn-block ">
-            <%= link_to "Log in", "/users/sign_in/" %>
-           </button>
+           
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block " %>
+          
          </div>
          <div class="row">
-           <button class="btn btn-success  btn-sm btn-block">
-            <%= link_to "/users/sign_up/" do %>Sign up<% end %>
-           </button>
+           
+            <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
+           
          </div>
          
          

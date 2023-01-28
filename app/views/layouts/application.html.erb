@@ -14,9 +14,9 @@
     
         <header class="sticky-top">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
-        <a>
+      
           <%= link_to "Bookers", root_path, data: {"turbolinks" => false} %>
-        </a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,36 +26,36 @@
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <i class="fa-solid fa-house-chimney"></i>
+                <i class="fas fa-home"></i>
                 <%= link_to 'Home', user_path(current_user.id) %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-users"></i>
+                <i class="fas fa-users"></i>
                 <%= link_to 'Users', users_path %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-book-open"></i>
+                <i class="fas fa-book-open"></i>
                 <%= link_to "Books", books_path %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-right-from-bracket"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
               <li class="nav-item">
-                <i class="fa-solid fa-house-chimney"></i>
+                <i class="fas fa-home"></i>
                 <%= link_to 'Home', root_path %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-link"></i>
+                <i class="fas fa-link"></i>
                 <%= link_to 'About', about_path %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-user-plus"></i>
+                <i class="fas fa-user-plus"></i>
                 <%= link_to "Sign up", new_user_registration_path %>
               </li>
               <li class="nav-item">
-                <i class="fa-solid fa-right-to-bracket"></i>
+                <i class="fas fa-sign-in-alt"></i>
                 <%= link_to "Log in", new_user_session_path %>
               </li>
             <% end %>
