@@ -19,14 +19,17 @@
       </table>
       
       <% if @user == current_user %>
-         <button type="button" class="btn btn-outline-secondary">
-          <%= link_to  edit_user_path(@user) do %>
-            <i class="fas fa-user-cog"></i><% end %>
+        <button class="btn btn-outline-secondary">
+          <%= link_to  edit_user_path(current_user) do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
         </button>
         <% else %>
-         <button type="button" class="btn btn-outline-secondary">
-            <%= link_to user_path(current_user.id) do %><i class="fas.fa-user-cog"></i><% end %>
-        　</button>
+        <button class="btn btn-outline-secondary">
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </button>
       <% end %>
       
      <!--投稿機能-->

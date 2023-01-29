@@ -21,10 +21,16 @@
             <button type="button" class="btn btn-outline-secondary">
               <%= link_to edit_user_path(@user) do %><i class="fas fa-user-cog"></i><% end %>
           　</button>
-        <% end %>
+        <% else %>
+        <button class="btn btn-outline-secondary">
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </button>
+      <% end %>
        
           <h2>New book</h2>
-        <%= form_with model: @book do |f| %>
+        <%= form_with model: @books do |f| %>
           <h4>Title</h4>
             <%= f.text_field :title %>
           <h4>Opinion</h4>

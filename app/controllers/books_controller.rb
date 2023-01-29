@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  # before_action :is_matching_login_user, only: [:edit, :update]
   # def new
   #   @book = Book.new
   # end
@@ -22,9 +23,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])  #urlのidを持つbookのデータを＠bookに収納
-    @books = Book.new #新規投稿機能のため
-    @user = @book.user#bookから関連づけられたuser情報を＠userに収納
+    @book = Book.find(params[:id]) 
+    @books = Book.new 
+    @user = @book.user
+    # @other_user = User.where.not(id: current_user.id)
     # @book.user = User.find(@book.user.id)
   end
   
@@ -50,6 +52,13 @@ class BooksController < ApplicationController
   end
   
   private
+  
+  def is_matching_login_user
+    user_id = params[:id].to_i
+    unless user_id == current_user.id
+      redirect_to '/books'
+    end
+  end
 
   def book_params
     params.require(:book).permit(:title, :body, :profile_image)
